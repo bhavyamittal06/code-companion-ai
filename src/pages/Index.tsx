@@ -80,9 +80,14 @@ const Index = () => {
             <ReviewPanel review={review} />
           ) : (
             <div className="flex items-center justify-center h-full text-muted-foreground">
-              <div className="text-center space-y-2">
-                <p className="text-lg font-medium">Paste your code and click Review</p>
-                <p className="text-sm">AI-powered analysis in seconds</p>
+              <div className="text-center space-y-4">
+                <div className="mx-auto w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-mono text-2xl font-bold opacity-60">&lt;/&gt;</span>
+                </div>
+                <div className="space-y-1.5">
+                  <p className="text-lg font-medium text-foreground/70">Your code review will appear here</p>
+                  <p className="text-sm text-muted-foreground">Paste any code on the left and hit Review →</p>
+                </div>
               </div>
             </div>
           )}
