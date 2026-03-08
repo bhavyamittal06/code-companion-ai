@@ -2,7 +2,6 @@ import { CodeReview } from "@/types/review";
 import { Clock, HardDrive, Bug, Shield, BarChart3, Lightbulb, Sparkles, Copy, Check, Download, Share2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 function CopyButton({ text }: { text: string }) {
