@@ -47,16 +47,42 @@ interface Props {
 }
 
 const ReviewPanel = ({ review }: Props) => {
-  const handleDownloadPDF = async () => {
-    const el = document.getElementById("review-content");
-    if (!el) return;
+  const handleDownloadPDF = () => {
     try {
-      const canvas = await html2canvas(el, { backgroundColor: "#080810", scale: 2 });
-      const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
-      const w = pdf.internal.pageSize.getWidth();
-      const h = (canvas.height * w) / canvas.width;
-      pdf.addImage(imgData, "PNG", 0, 0, w, h);
+      const w = pdf.internal.pageSize.getWidth() - 20;
+      let y = 15;
+      const lineHeight = 6;
+      const addText = (text: string, size = 10, bold = false) => {
+        pdf.setFontSize(size);
+        const lines = pdf.splitTextToSize(text, w);
+        for (const line of lines) {
+          if (y > 280) { pdf.addPage(); y = 15; }
+          pdf.text(line, 10, y);
+          y += lineHeight;
+        }
+      };
+      addText("Code Review Summary", 16);
+      y += 4;
+      addText(`Score: ${review.quality_score}/10`);
+      addText(`Time Complexity: ${review.time_complexity}`);
+      addText(`Space Complexity: ${review.space_complexity}`);
+      y += 4;
+      addText("Summary:");
+      addText(review.summary);
+      if (review.bugs.length > 0) {
+        y += 4;
+        addText(`Bugs (${review.bugs.length}):`);
+        review.bugs.forEach(b => addText(`Line ${b.line}: ${b.issue} — Fix: ${b.fix}`));
+      }
+      if (review.security_issues.length > 0) {
+        y += 4;
+        addText("Security Issues:");
+        review.security_issues.forEach(s => addText(`• ${s}`));
+      }
+      y += 4;
+      addText("Suggestions:");
+      review.suggestions.forEach((s, i) => addText(`${i + 1}. ${s}`));
       pdf.save("code-review.pdf");
       toast.success("PDF downloaded!");
     } catch {
