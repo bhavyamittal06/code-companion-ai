@@ -18,8 +18,8 @@ const Header = () => {
             </p>
           </div>
         </a>
-        <span className="hidden sm:inline text-xs text-muted-foreground border-l border-border pl-6">
-          Paste code. Get brutal honest feedback. Ship better.
+        <span className="hidden sm:inline text-xs border-l border-border pl-6 font-bold text-foreground">
+          Paste code. Get brutal honest feedback. Ship better!
         </span>
       </div>
       <a
