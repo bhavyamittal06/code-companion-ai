@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Loader2 } from "lucide-react";
 
 const MESSAGES = [
@@ -11,10 +10,15 @@ const MESSAGES = [
 
 const LoadingState = () => {
   const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % MESSAGES.length);
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % MESSAGES.length);
+        setVisible(true);
+      }, 300);
     }, 1500);
     return () => clearInterval(interval);
   }, []);
@@ -22,18 +26,13 @@ const LoadingState = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full gap-6">
       <Loader2 className="w-12 h-12 text-primary animate-spin-slow" />
-      <AnimatePresence mode="wait">
-        <motion.p
-          key={index}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          className="text-muted-foreground text-lg font-medium"
-        >
-          {MESSAGES[index]}
-        </motion.p>
-      </AnimatePresence>
+      <p
+        className={`text-muted-foreground text-lg font-medium transition-all duration-300 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        }`}
+      >
+        {MESSAGES[index]}
+      </p>
     </div>
   );
 };
