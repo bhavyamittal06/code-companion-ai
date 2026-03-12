@@ -1,73 +1,56 @@
-# Welcome to your Lovable project
+ AI Reviewer
+An intelligent code and content review application powered by AI. Built to streamline the review process with automated feedback, suggestions, and analysis.
+✨ Features
 
-## Project info
+🔍 AI-Powered Analysis — Instantly review code or content with detailed, actionable feedback
+⚡ Real-time Results — Fast responses with a clean, modern interface
+🎨 Beautiful UI — Built with Tailwind CSS and shadcn/ui for a polished experience
+📱 Responsive Design — Works seamlessly across desktop and mobile
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🛠️ Tech Stack
 
-## How can I edit this code?
+Frontend: React + TypeScript
+Build Tool: Vite
+Styling: Tailwind CSS + shadcn/ui
+AI Integration: Powered by Claude / OpenAI API
 
-There are several ways of editing your application.
+🚀 Getting Started
+Prerequisites
 
-**Use Lovable**
+Node.js (v18 or higher)
+npm
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Installation
+bash# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
-```
+The app will be available at http://localhost:8080
+📁 Project Structure
+src/
+├── components/       # Reusable UI components
+├── pages/            # Application pages
+├── hooks/            # Custom React hooks
+├── lib/              # Utility functions
+└── main.tsx          # Application entry point
+🌐 Deployment
+This project is deployed on Vercel. Every push to main triggers an automatic deployment.
+To deploy your own instance:
 
-**Edit a file directly in GitHub**
+Fork this repository
+Connect it to Vercel
+Add your environment variables
+Deploy!
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🔧 Environment Variables
+Create a .env file in the root directory:
+envVITE_API_KEY=your_api_key_here
+📄 License
+MIT License — feel free to use and modify this project.
