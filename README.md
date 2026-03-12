@@ -22,17 +22,17 @@ npm
 
 Installation
 bash# Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://brute-code.vercel.app
 
 # Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
+cd brute-code
 
 # Install dependencies
 npm install
 
 # Start the development server
 npm run dev
-The app will be available at http://localhost:8080
+The app will be available at https://brute-code.vercel.app
 📁 Project Structure
 src/
 ├── components/       # Reusable UI components
